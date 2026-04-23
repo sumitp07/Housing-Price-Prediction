@@ -1,67 +1,105 @@
-# 🏠 House Price Prediction
+# 🏠 Housing Price Prediction - ML Project
 
-An end-to-end Machine Learning project to predict house prices using features like location, size, number of rooms, and amenities.
+Predict house prices using Multiple Linear Regression. 12 features → price forecast.
 
----
-
-## 🚀 Overview
-This project demonstrates the complete ML workflow:
-- Data preprocessing & cleaning  
-- Exploratory Data Analysis (EDA)  
-- Feature engineering  
-- Model training & evaluation  
-- Prediction on new data  
-
----
-
-## 🧠 Models Used
-- Linear Regression / ElasticNet  
-- Random Forest  
-- Gradient Boosting  
-- XGBoost  
-
----
-
-## 📊 Evaluation Metrics
-- RMSE  
-- MAE  
-- R² Score  
-
----
+## 📊 Dataset
+- **Source:** Housing sales data
+- **Features:** 12 (sqft, bedrooms, bathrooms, grade, location, etc.)
+- **Target:** AdjSalePrice
 
 ## 🛠️ Tech Stack
-- Python  
-- Pandas, NumPy  
-- Scikit-learn  
-- Matplotlib / Seaborn *(if used)*  
+- Python 3.x
+- Scikit-learn (Linear Regression)
+- Pandas (data handling)
+- Matplotlib + Seaborn (viz)
+- NumPy (numerical ops)
 
----
+## 🚀 Quick Start
 
-## 🔧 Workflow
-1. Data Cleaning & Preprocessing  
-2. Exploratory Data Analysis  
-3. Feature Engineering  
-4. Model Training  
-5. Evaluation & Hyperparameter Tuning  
-6. Prediction on new data  
-
----
-
-## ▶️ How to Run
 ```bash
-git clone https://github.com/yourusername/house-price-prediction.git
-cd house-price-prediction
+# Clone repo
+git clone <repo-url>
+cd housing-price-prediction
+
+# Install deps
 pip install -r requirements.txt
-python app.py
 
+# Run notebook
+jupyter notebook HOUSING_PRICE_CLEANED.ipynb
+```
 
-📌 Results
-Achieved reliable predictions using regression and ensemble models
-Improved model performance through feature engineering and tuning
-Best model achieved strong accuracy on validation dataset
+## 📁 Project Structure
+```
+├── HOUSING_PRICE_CLEANED.ipynb    # Main analysis notebook
+├── Housing_Price.csv              # Dataset
+├── README.md                      # This file
+└── requirements.txt               # Dependencies
+```
 
+## 🔍 Methodology
 
-📎 Author
+### 1. Data Exploration
+- Load & inspect dataset
+- Check missing values
+- Statistical summary
 
-Sumit Purnapatre
-GitHub: https://github.com/sumitp07
+### 2. EDA
+- Target distribution analysis
+- Correlation heatmap
+- Feature relationships
+
+### 3. Model Building
+- Feature selection (12 predictors)
+- Train-test split (80-20)
+- Multiple Linear Regression
+
+### 4. Evaluation
+- RMSE calculation
+- R² score
+- Residual analysis
+- Actual vs Predicted plot
+
+### 5. Insights
+- SqFtTotLiving = strongest predictor
+- BldgGrade highly correlated
+- TrafficNoise negatively impacts price
+
+## 📈 Results
+- **Model:** Multiple Linear Regression
+- **R² Score:** ~0.XX (variance explained)
+- **RMSE:** $XXX,XXX (avg prediction error)
+
+## 🎯 Key Features Impact
+1. **SqFtTotLiving** - Primary driver
+2. **BldgGrade** - Quality metric
+3. **Bathrooms** - Positive correlation
+4. **TrafficNoise** - Negative impact
+
+## 🔮 Future Improvements
+- [ ] Feature engineering (property age, price/sqft)
+- [ ] Handle outliers
+- [ ] Try Ridge/Lasso regression
+- [ ] Cross-validation
+- [ ] Advanced models (Random Forest, XGBoost)
+
+## 📝 Requirements
+```txt
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+scikit-learn>=0.24.0
+jupyter>=1.0.0
+```
+
+## 👤 Author
+**Sumit Purnapatre**  
+- GitHub: [@sumitp07](https://github.com/sumitp07)
+- LinkedIn: [Sumit Purnapatre](https://linkedin.com/in/sumit-purnapatre)
+
+## 📄 License
+MIT License - free to use for learning/portfolio
+
+---
+
+⭐ Star if helpful | 🐛 Issues welcome | 🤝 PRs appreciated
