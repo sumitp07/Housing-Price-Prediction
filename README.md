@@ -1,105 +1,99 @@
-# 🏠 Housing Price Prediction - ML Project
+# House Price Prediction
 
-Predict house prices using Multiple Linear Regression. 12 features → price forecast.
+A portfolio-ready machine learning project that predicts house prices from property features such as area, bedrooms, bathrooms, amenities, parking, and furnishing status.
 
-## 📊 Dataset
-- **Source:** Housing sales data
-- **Features:** 12 (sqft, bedrooms, bathrooms, grade, location, etc.)
-- **Target:** AdjSalePrice
+The original notebook contains the exploratory analysis and baseline model work. The Streamlit frontend adds an interactive prediction experience powered by a saved scikit-learn pipeline.
 
-## 🛠️ Tech Stack
-- Python 3.x
-- Scikit-learn (Linear Regression)
-- Pandas (data handling)
-- Matplotlib + Seaborn (viz)
-- NumPy (numerical ops)
+## Features
 
-## 🚀 Quick Start
+- Interactive Streamlit prediction form
+- Saved scikit-learn model pipeline
+- One-hot encoding for categorical housing features
+- Model metrics stored in JSON
+- Dataset overview and feature insight tabs
+- Indian rupee formatting for predicted prices
+
+## Tech Stack
+
+- Python
+- Pandas and NumPy
+- Scikit-learn
+- Streamlit
+- Matplotlib and Seaborn
+- Joblib
+
+## Project Structure
+
+```text
+.
+├── HOUSING_PRICE_CLEANED.ipynb
+├── Housing.csv
+├── app.py
+├── train_model.py
+├── requirements.txt
+├── models/
+│   ├── house_price_model.pkl
+│   └── metrics.json
+└── README.md
+```
+
+## Setup
 
 ```bash
-# Clone repo
-git clone <repo-url>
-cd housing-price-prediction
-
-# Install deps
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-
-# Run notebook
-jupyter notebook HOUSING_PRICE_CLEANED.ipynb
 ```
 
-## 📁 Project Structure
-```
-├── HOUSING_PRICE_CLEANED.ipynb    # Main analysis notebook
-├── Housing_Price.csv              # Dataset
-├── README.md                      # This file
-└── requirements.txt               # Dependencies
-```
+## Train the Model
 
-## 🔍 Methodology
+Run this once before starting the frontend:
 
-### 1. Data Exploration
-- Load & inspect dataset
-- Check missing values
-- Statistical summary
-
-### 2. EDA
-- Target distribution analysis
-- Correlation heatmap
-- Feature relationships
-
-### 3. Model Building
-- Feature selection (12 predictors)
-- Train-test split (80-20)
-- Multiple Linear Regression
-
-### 4. Evaluation
-- RMSE calculation
-- R² score
-- Residual analysis
-- Actual vs Predicted plot
-
-### 5. Insights
-- SqFtTotLiving = strongest predictor
-- BldgGrade highly correlated
-- TrafficNoise negatively impacts price
-
-## 📈 Results
-- **Model:** Multiple Linear Regression
-- **R² Score:** ~0.XX (variance explained)
-- **RMSE:** $XXX,XXX (avg prediction error)
-
-## 🎯 Key Features Impact
-1. **SqFtTotLiving** - Primary driver
-2. **BldgGrade** - Quality metric
-3. **Bathrooms** - Positive correlation
-4. **TrafficNoise** - Negative impact
-
-## 🔮 Future Improvements
-- [ ] Feature engineering (property age, price/sqft)
-- [ ] Handle outliers
-- [ ] Try Ridge/Lasso regression
-- [ ] Cross-validation
-- [ ] Advanced models (Random Forest, XGBoost)
-
-## 📝 Requirements
-```txt
-numpy>=1.21.0
-pandas>=1.3.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
-scikit-learn>=0.24.0
-jupyter>=1.0.0
+```bash
+python train_model.py
 ```
 
-## 👤 Author
-**Sumit Purnapatre**  
-- GitHub: [@sumitp07](https://github.com/sumitp07)
-- LinkedIn: [Sumit Purnapatre](https://linkedin.com/in/sumit-purnapatre)
+This creates:
 
-## 📄 License
-MIT License - free to use for learning/portfolio
+- `models/house_price_model.pkl`
+- `models/metrics.json`
 
----
+## Run the Frontend
 
-⭐ Star if helpful | 🐛 Issues welcome | 🤝 PRs appreciated
+```bash
+streamlit run app.py
+```
+
+The app opens with the prediction form first. Enter house details and click **Predict price** to get an estimated house price.
+
+## Model Inputs
+
+The app uses the same 12 input features as the notebook:
+
+- `area`
+- `bedrooms`
+- `bathrooms`
+- `stories`
+- `mainroad`
+- `guestroom`
+- `basement`
+- `hotwaterheating`
+- `airconditioning`
+- `parking`
+- `prefarea`
+- `furnishingstatus`
+
+## Model
+
+- Algorithm: Multiple Linear Regression
+- Split: 80% training, 20% testing
+- Encoding: One-hot encoding for categorical fields
+- Metrics: RMSE, MAE, and R² score
+
+## Screenshots
+
+Add screenshots here after running the Streamlit app locally.
+
+## Author
+
+Sumit Purnapatre
